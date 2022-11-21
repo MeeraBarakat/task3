@@ -1,56 +1,46 @@
-import { useState } from "react";
 import map from 'lodash/map'
 import Ingredient from "./Ingredient";
+import{useDispatch,useSelector} from "react-redux"
+import {addIng} from "../features/burger"
 
 function ControlPanel() {
-    const [fillings,setFillings]=useState([]);
+    const dispatch=useDispatch();
+    const burger= useSelector((state)=>state.burger.value);
+    const Ing=[];
     let ingredient="";
 
     function addFilling(){
-        if(!ingredient=='')
-        setFillings([...fillings,{name:ingredient,quantity:1}]);
+        if(ingredient!=="")
+        dispatch(addIng({name:ingredient}));
         ingredient="";
     }
 
-    function Inc(c){
-        const filling=[...fillings];
-        const index=fillings.indexOf(c);
-        filling[index]={...c};
-        filling[index].quantity++;
-        setFillings(filling);
-    }
-
-    function dec(c){
-        if(c.quantity===1){
-            setFillings(fillings.filter(function(obj){
-                return obj !== c
-            }))
-        }
-        else{
-        const filling=[...fillings];
-        const index=fillings.indexOf(c);
-        filling[index]={...c};
-        filling[index].quantity--;
-        setFillings(filling);
-        }
+    function lis(fills){
+        if(Ing.findIndex(x => x.name === fills.name) === -1)
+        { 
+         Ing.push(fills);
+         return <Ingredient key={fills.name} fills={fills}/>
+        }             
     }
 
     return (
         <div className="ControlPanel">
-            <div>
-                Please Choose your fillings
-            </div>
-            <select onChange={(e)=>ingredient=e.target.value}>
+            <span className='header'>
+                Please create your burger
+            </span>
+            <select aria-label='Ingredients' className='options' onChange={(e)=>ingredient=e.target.value}>
              <option>choose</option>
-             {fillings.findIndex(x => x.name ==="Meat") === -1 && <option value="Meat">Meat</option>}
-             {fillings.findIndex(x => x.name ==="Tomato") === -1 && <option value="Tomato">Tomato</option>}
-             {fillings.findIndex(x => x.name ==="Onions") === -1 && <option value="Onions">Onion</option>}
-             {fillings.findIndex(x => x.name ==="Lettuce") === -1 && <option value="Lettuce">Lettuce</option>}
-             {fillings.findIndex(x => x.name ==="Mushroom") === -1 && <option value="Mushroom">Mushroom</option>}
-             {fillings.findIndex(x => x.name ==="Cheese") === -1 && <option value="Cheese">Cheese</option>}
+             {burger.findIndex(x => x.name ==="Meat") === -1 && <option value="Meat">Meat</option>}
+             {burger.findIndex(x => x.name ==="Tomato") === -1 && <option value="Tomato">Tomato</option>}
+             {burger.findIndex(x => x.name ==="Onions") === -1 && <option value="Onions">Onion</option>}
+             {burger.findIndex(x => x.name ==="Lettuce") === -1 && <option value="Lettuce">Lettuce</option>}
+             {burger.findIndex(x => x.name ==="Mushroom") === -1 && <option value="Mushroom">Mushroom</option>}
+             {burger.findIndex(x => x.name ==="Cheese") === -1 && <option value="Cheese">Cheese</option>}
+             {burger.findIndex(x => x.name ==="Leaf") === -1 && <option value="Leaf">Leaf</option>}
             </select>
-            <button onClick={addFilling}>add</button>
-            {map(fillings,(fills)=><Ingredient key={fills.name} onInc={Inc} onDec={dec} fills={fills}/>)}
+            <button className='button' onClick={addFilling}>add</button>
+            {map(burger,(fills)=>lis(fills)
+            )}
         </div>
     );
 }
