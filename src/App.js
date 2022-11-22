@@ -1,4 +1,4 @@
-import './App.css';
+import './Styles/App.css';
 import ControlPanel from './components/ControlPanel';
 import Simulation from './components/Simulation';
 

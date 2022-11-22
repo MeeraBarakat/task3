@@ -1,0 +1,21 @@
+.Simulation{
+    width:50vw;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  
+  .grid-container{
+    height: 100%;
+    display: grid;
+    justify-content: center;
+    place-items: center;
+  }
+  
+  .inner-container{
+    margin-top: 5px;
+  }
+
+  .sim-imgs{
+    display: block;
+    width: 100px;
+  }

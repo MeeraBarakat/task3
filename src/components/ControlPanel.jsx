@@ -1,4 +1,5 @@
-import map from 'lodash/map'
+import map from 'lodash/map';
+import findIndex from 'lodash/findIndex';
 import Ingredient from "./Ingredient";
 import{useDispatch,useSelector} from "react-redux"
 import {addIng} from "../features/burger"
@@ -12,11 +13,10 @@ function ControlPanel() {
     function addFilling(){
         if(ingredient!=="")
         dispatch(addIng({name:ingredient}));
-        ingredient="";
     }
 
-    function lis(fills){
-        if(Ing.findIndex(x => x.name === fills.name) === -1)
+    function addIngredient(fills){
+        if(findIndex(Ing,x => x.name === fills.name) === -1)
         { 
          Ing.push(fills);
          return <Ingredient key={fills.name} fills={fills}/>
@@ -30,16 +30,16 @@ function ControlPanel() {
             </span>
             <select aria-label='Ingredients' className='options' onChange={(e)=>ingredient=e.target.value}>
              <option>choose</option>
-             {burger.findIndex(x => x.name ==="Meat") === -1 && <option value="Meat">Meat</option>}
-             {burger.findIndex(x => x.name ==="Tomato") === -1 && <option value="Tomato">Tomato</option>}
-             {burger.findIndex(x => x.name ==="Onions") === -1 && <option value="Onions">Onion</option>}
-             {burger.findIndex(x => x.name ==="Lettuce") === -1 && <option value="Lettuce">Lettuce</option>}
-             {burger.findIndex(x => x.name ==="Mushroom") === -1 && <option value="Mushroom">Mushroom</option>}
-             {burger.findIndex(x => x.name ==="Cheese") === -1 && <option value="Cheese">Cheese</option>}
-             {burger.findIndex(x => x.name ==="Leaf") === -1 && <option value="Leaf">Leaf</option>}
+             {findIndex(burger,x => x.name ==="beef") === -1 && <option value="beef">Beef</option>}
+             {findIndex(burger,x => x.name ==="tomato") === -1 && <option value="tomato">Tomato</option>}
+             {findIndex(burger,x => x.name ==="onion") === -1 && <option value="onion">Onion</option>}
+             {findIndex(burger,x => x.name ==="lettuce") === -1 && <option value="lettuce">Lettuce</option>}
+             {findIndex(burger,x => x.name ==="mushroom") === -1 && <option value="mushroom">Mushroom</option>}
+             {findIndex(burger,x => x.name ==="cheese") === -1 && <option value="cheese">Cheese</option>}
+             {findIndex(burger,x => x.name ==="leaf") === -1 && <option value="leaf">Leaf</option>}
             </select>
             <button className='button' onClick={addFilling}>add</button>
-            {map(burger,(fills)=>lis(fills)
+            {map(burger,(fills)=>addIngredient(fills)
             )}
         </div>
     );

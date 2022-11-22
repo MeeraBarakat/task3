@@ -1,0 +1,36 @@
+.ControlPanel{
+  width:50vw;
+  height: 100vh;
+  min-height: 400px;
+  background-color:gainsboro;
+  position: absolute;
+  right: 0;
+}
+
+.options{
+  width: 30%;
+  height: 5%;
+  margin: 10px;
+  border: #4c8cc1;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+.header{
+  display: block;
+  margin: 10px;
+  font-size: 18px;
+}
+
+.button{
+  width: 20%;
+  height: 5%;
+  border: 2px solid rgb(15, 125, 235);
+  background-color: rgb(15, 125, 235);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  text-align: center;
+}
