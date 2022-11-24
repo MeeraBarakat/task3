@@ -1,0 +1,31 @@
+[
+    {
+       "id": 1,
+       "name": "Classic Burger",
+       "ingredients":[
+        "tomato","onion","beef","lettuce"
+       ]
+    },
+    {
+        "id": 2,
+        "name": "Double Classic Burger",
+        "ingredients":[
+         "tomato","onion","beef","lettuce","tomato","beef","lettuce"
+        ]
+     },
+     {
+        "id": 3,
+        "name": "Classic Cheese Burger",
+        "ingredients":[
+            "tomato","onion","beef","cheese","lettuce"
+        ]
+     },
+     {
+        "id": 4,
+        "name": "Double Cheese Burger",
+        "ingredients":[
+            "tomato","onion","cheese","beef","lettuce","tomato","cheese","beef","lettuce"
+        ]
+     }
+
+]

@@ -9,10 +9,13 @@ const userSlice=createSlice({
         },
         removeIng:(state,action)=>{
             state.value.splice(action.payload,1);
+        },
+        setIng:(state,action)=>{
+            state.value=action.payload;
         }
     },
 });
 
-export const {addIng,removeIng}=userSlice.actions;
+export const {addIng,removeIng,setIng}=userSlice.actions;
 
 export default userSlice.reducer;

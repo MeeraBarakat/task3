@@ -1,6 +1,8 @@
 import '../Styles/Simulation.css';
 import{useSelector} from "react-redux";
 import map from 'lodash/map';
+import find from 'lodash/find';
+import Ingredients from '../burger.json';
 
 function Simulation() {
     const burger= useSelector((state)=>state.burger.value);
@@ -9,9 +11,12 @@ function Simulation() {
         <div className="Simulation">
             <div className="grid-container">
                 <div className="inner-container">
-                    <img className="sim-imgs" src='images/bread-top.svg' style={{height:'40px'}} alt="Topbread"></img>
-                    {map(burger,(fills,idx)=><img className="sim-imgs" style={{height:'30px'}} key={fills.name+idx} src={`images/${fills.name}.svg`} alt={fills.name}></img>)}      
-                    <img className="sim-imgs" src='images/bread-bottom.svg' style={{height:'40px'}} alt="Bottombread "></img>
+                    <img className="sim-imgs" src={Ingredients[0].path} style={{height:'40px'}} alt={Ingredients[0].name}></img>
+                    {map(
+                        burger,(ingredientName,idx)=>{
+                        const Ingredient=find(Ingredients,x => x.name === ingredientName);
+                        return<img className="sim-imgs" style={{height:'30px'}} key={Ingredient.name+idx} src={Ingredient.path} alt={Ingredient.name}></img>})}    
+                    <img className="sim-imgs" src={Ingredients[1].path} style={{height:'40px'}} alt={Ingredients[1].name}></img>
                 </div>
             </div>
         </div>
