@@ -12,8 +12,8 @@
   
   .title{
     display: flex;
-  justify-content: center;
-  align-items: center;
+    justify-content: center;
+    align-items: center;
   }
   
   .buttons{
@@ -24,7 +24,7 @@
     color: white;
     border-radius: 30%;
     cursor: pointer;
-    font-size: 1em;
+    font-size: 1rem;
     margin:3px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }

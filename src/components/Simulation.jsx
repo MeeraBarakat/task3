@@ -2,7 +2,7 @@ import '../Styles/Simulation.css';
 import{useSelector} from "react-redux";
 import map from 'lodash/map';
 import find from 'lodash/find';
-import Ingredients from '../burger.json';
+import Ingredients from '../data/burger.json';
 
 function Simulation() {
     const burger= useSelector((state)=>state.burger.value);
