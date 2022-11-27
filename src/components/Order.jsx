@@ -1,6 +1,6 @@
 import '../Styles/Order.css';
 import{useSelector} from "react-redux";
-import Ingredients from '../data/burger.json'
+import Ingredients from '../data/burger.json';
 import { map } from 'lodash';
 
 function Order() {
@@ -18,16 +18,15 @@ function Order() {
     return (
         <div className='all'>
         <div className="burger">
+            <div>
             <div className='Burger-created-title'>
                 Your burger is created
             </div>
-            <div>
                 <div className='Ing-title'>Chosen ingredients:</div>
                 {map(Ingredients,Ingredient=>{
                     return <div className='ingredient-container' key={Ingredient.id}><img className='order-image' key={Ingredient.id} 
                                 src={Ingredient.path} alt={Ingredient.name} />{Ingredient.name} {count(Ingredient)}</div>  
                 })}
-            
             <div className='price'>Total price: {price}₪</div>  
             </div>           
             <button className='order-button'>Order</button>

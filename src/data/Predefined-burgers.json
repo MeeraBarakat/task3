@@ -4,28 +4,26 @@
        "name": "Classic Burger",
        "ingredients":[
         "tomato","onion","beef","lettuce"
-       ]
+       ],
+       "price":16,
+       "path":"images/burger.jpg"
     },
     {
         "id": 2,
         "name": "Double Classic Burger",
         "ingredients":[
          "tomato","onion","beef","lettuce","tomato","beef","lettuce"
-        ]
+        ],
+        "price":29,
+        "path":"images/DoubleBurger.jpg"
      },
      {
         "id": 3,
         "name": "Classic Cheese Burger",
         "ingredients":[
             "tomato","onion","beef","cheese","lettuce"
-        ]
-     },
-     {
-        "id": 4,
-        "name": "Double Cheese Burger",
-        "ingredients":[
-            "tomato","onion","cheese","beef","lettuce","tomato","cheese","beef","lettuce"
-        ]
+        ],
+        "price":18,
+        "path":"images/cheeseBurger.jpg"
      }
-
 ]

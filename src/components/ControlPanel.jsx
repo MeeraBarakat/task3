@@ -14,6 +14,7 @@ function ControlPanel() {
     const burger= useSelector((state)=>state.burger.value);
     const navigate=useNavigate(null);
     let Ing=[];
+    let price=0;
 
     return (
         <div className="ControlPanel">
@@ -50,6 +51,11 @@ function ControlPanel() {
                         return <Ingredient key={ingredientName} ingredientName={ingredientName}/>
                      }})
                 }
+                <div className='control-price'>Total price:{map(burger,(ingredientName)=>{
+                        const burger=find(Ingredients,x => x.name === ingredientName);
+                        price+=burger.price
+                     })
+                } {price+2}₪</div>  
             </div>
             <button className='bt' onClick={()=>{navigate('/order')}}>Finish</button>
         </div>

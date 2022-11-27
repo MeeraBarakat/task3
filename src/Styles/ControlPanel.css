@@ -12,9 +12,17 @@
   overflow-y: auto;
 }
 
+.Cart{
+  width: 20%;
+  height: 1rem; 
+  border-radius: 10px;
+  margin: 10px;
+  border: 0;
+}
+
 .options{
   width: 30%;
-  height: 1.5rem;
+  height: 2.2rem;
   margin: 10px;
   border: #4c8cc1;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -29,7 +37,7 @@
 }
 
 .bt{
-  width: 50%;
+  width: 45%;
   height: 1.5rem;
   border: 2px solid rgb(15, 125, 235);
   background-color: rgb(15, 125, 235);
@@ -39,4 +47,10 @@
   font-size: 1rem;
   text-align: center;
   margin: 10px;
+  margin-bottom: 20px;
+}
+
+.control-price{
+  margin-left: 12px;
+  margin-top: 10px;
 }

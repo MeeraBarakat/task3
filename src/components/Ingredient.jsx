@@ -3,7 +3,7 @@ import{useDispatch,useSelector} from "react-redux";
 import findLastIndex from 'lodash/findLastIndex';
 import find from 'lodash/find';
 import {addIng,removeIng} from "../features/burger";
-import Ingredients from '../data/burger.json'
+import Ingredients from '../data/burger.json';
 
 function Ingredient(props) {
     const burger= useSelector((state)=>state.burger.value);
