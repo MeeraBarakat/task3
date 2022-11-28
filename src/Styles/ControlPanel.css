@@ -14,10 +14,21 @@
 
 .Cart{
   width: 20%;
-  height: 1rem; 
+  height: 5rem; 
   border-radius: 10px;
-  margin: 10px;
+  margin: 15px;
   border: 0;
+  background-size: contain;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+}
+
+.burger-name{
+  position: absolute;
+  top: 105%;
+  width: 100%;
+  right: 0;
 }
 
 .options{
