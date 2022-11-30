@@ -1,7 +1,6 @@
 import '../Styles/Ingredient.css';
 import{useDispatch,useSelector} from "react-redux";
-import findLastIndex from 'lodash/findLastIndex';
-import find from 'lodash/find';
+import {find,findLastIndex } from 'lodash';
 import {addIng,removeIng} from "../features/burger";
 import Ingredients from '../data/burger.json';
 

@@ -1,7 +1,6 @@
 import '../Styles/Simulation.css';
 import{useSelector} from "react-redux";
-import map from 'lodash/map';
-import find from 'lodash/find';
+import {map,find} from 'lodash';
 import Ingredients from '../data/burger.json';
 
 function Simulation() {

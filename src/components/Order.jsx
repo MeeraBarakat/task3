@@ -7,7 +7,7 @@ function Order() {
     const burger= useSelector((state)=>state.burger.value);
     let price=2;
 
-    function count(Ingredient){
+    const count=(Ingredient)=>{
         if(Ingredient.name==='bread-top' || Ingredient.name==='bread-bottom')
             return 1;
         const count = burger.reduce(function(n, val) {return n + (val === Ingredient.name)},0);
@@ -18,17 +18,17 @@ function Order() {
     return (
         <div className='all'>
         <div className="burger">
-            <div>
             <div className='Burger-created-title'>
                 Your burger is created
             </div>
-                <div className='Ing-title'>Chosen ingredients:</div>
+                <div className='price-Ing-title'>Burger ingredients:</div>
+                <div>
                 {map(Ingredients,Ingredient=>{
                     return <div className='ingredient-container' key={Ingredient.id}><img className='order-image' key={Ingredient.id} 
                                 src={Ingredient.path} alt={Ingredient.name} />{Ingredient.name} {count(Ingredient)}</div>  
                 })}
-            <div className='price'>Total price: {price}₪</div>  
-            </div>           
+                </div>
+            <div className='price-Ing-title'>Total price: {price}₪</div>             
             <button className='order-button'>Order</button>
         </div>
         </div>

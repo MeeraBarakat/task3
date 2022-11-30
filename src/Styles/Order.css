@@ -8,10 +8,12 @@
 }
 
 .burger{
-    height: 90vh;
-    width: 40vw;
+    height: 82vh;
+    width: 35vw;
     background-color: white;
     margin: 20px;
+    padding: 50px;
+    padding-bottom: 25px;
     border-radius: 20px;
     box-shadow: 10px 10px 5px gainsboro;
     position: absolute;
@@ -20,31 +22,20 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    overflow: auto;
 }
 
 .Burger-created-title{
     width: 100%;
     display: inline-flex;
     justify-content: center;
-    margin-top: 50px;
-    margin-bottom: 60px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1.2rem;
 }
 
-.price{
+.price-Ing-title{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1rem;
-    margin: 10px;
-    margin-top: 60px;
-}
-
-.Ing-title{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 1rem;
-    margin: 10px;
-    margin-bottom: 60px;
+    width: 100%;
 }
 
 .order-image{
@@ -58,7 +49,7 @@
 }
 
 .order-button{
-    width: 45%;
+    width: 50%;
     height: 1.5rem;
     border: 2px solid rgb(15, 125, 235);
     background-color: rgb(15, 125, 235);
@@ -67,5 +58,4 @@
     cursor: pointer;
     font-size: 1rem;
     text-align: center;
-    margin-bottom: 40px;
 }

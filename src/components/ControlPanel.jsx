@@ -1,7 +1,5 @@
 import '../Styles/ControlPanel.css';
-import map from 'lodash/map';
-import findIndex from 'lodash/findIndex';
-import find from 'lodash/find';
+import {findIndex,find,every,map} from 'lodash';
 import Ingredient from "./Ingredient";
 import{useDispatch,useSelector} from "react-redux";
 import {addIng,setIng} from "../features/burger";
@@ -14,21 +12,15 @@ function ControlPanel() {
     const burger= useSelector((state)=>state.burger.value);
     const navigate=useNavigate(null);
     let Ing=[];
-    let price=0;
-    let myburger='';
+    let price=2;
 
-    const compareArrays = (_arr1, _arr2)=> {
-        if (!Array.isArray(_arr1)|| !Array.isArray(_arr2)|| _arr1.length !== _arr2.length) {
+    const compareArrays = (array1, array2)=> {
+        if (array1.length !== array2.length) {
             return false;
           }
-        const arr1 = _arr1.concat().sort();
-        const arr2 = _arr2.concat().sort();
-        for (let i = 0; i < arr1.length; i++) {
-            if (arr1[i] !== arr2[i]) {
-                return false;
-             }
-        }
-        return true;
+        const arr1 = array1.concat().sort();
+        const arr2 = array2.concat().sort();
+        return every(arr1,(val,idx)=>val===arr2[idx]);
     }
 
     return (
@@ -37,18 +29,21 @@ function ControlPanel() {
                 <span className='header'>
                   Choose a burger from our menu
                 </span>  
-                {map(menu,(burgerr)=>
-                        {
-                            return <div onClick={()=>{
-                                Ing=[];
-                                myburger=find(menu,x => x.name === burgerr.name);
-                                dispatch(setIng(myburger.ingredients));
-                            }} style={{backgroundImage: "url("+burgerr.path+")",
-                            border:compareArrays(burger,find(menu,x => x.name === burgerr.name).ingredients) ? '2px solid rgb(15, 125, 235)' :0}} className='Cart'>
-                                <span className='burger-name'>{burgerr.name}</span></div>
+                <div style={{display:'flex'}}>
+                {map(menu,(thisBurger)=>
+                        {  
+                            return <div key={thisBurger.id} style={{backgroundImage: "url("+thisBurger.path+")",
+                                        border:compareArrays(burger,thisBurger.ingredients) ? '4px solid rgb(15, 125, 235)' :0}} className='Cart'>
+                                      <div className='details'>{thisBurger.name}
+                                        <div className='burger-info'>{thisBurger.ingredients.join(', ')}<div style={{marginTop:'5px'}}>{thisBurger.price}₪</div></div>
+                                            <button className='choose-btn' onClick={()=>{
+                                                Ing=[];
+                                                dispatch(setIng(thisBurger.ingredients));
+                                             }}>Choose</button></div></div>
                         })
                     }
-                <span style={{marginTop:'40px'}} className='header'>
+                </div>
+                <span style={{marginTop:'10px'}} className='header'>
                     Add Ingredients to your burger
                 </span>
                 <select aria-label='Ingredients' className='options' onChange={(e)=> {dispatch(addIng(e.target.value))}}>
@@ -67,9 +62,9 @@ function ControlPanel() {
                 }
                 <div className='control-price'>Total price:{map(burger,(ingredientName)=>{
                         const burger=find(Ingredients,x => x.name === ingredientName);
-                        price+=burger.price
+                        price+=burger.price;
                      })
-                } {price+2}₪</div>  
+                } {price}₪</div>  
             </div>
             <button className='bt' onClick={()=>{navigate('/order')}}>Finish</button>
         </div>
