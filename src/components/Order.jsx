@@ -1,11 +1,19 @@
 import '../Styles/Order.css';
 import{useSelector} from "react-redux";
-import Ingredients from '../data/burger.json';
 import { map } from 'lodash';
+import { fetchIngredients } from '../features/apis';
+import { useEffect, useState } from 'react';
 
 function Order() {
     const burger= useSelector((state)=>state.burger.value);
     let price=2;
+    const [Ingredients,setIngredients]=useState([]);
+    
+    useEffect(()=>{
+        fetchIngredients().then(data=>{
+            setIngredients(data);
+        });
+    },[]);
 
     const count=(Ingredient)=>{
         if(Ingredient.name==='bread-top' || Ingredient.name==='bread-bottom')

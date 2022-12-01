@@ -4,16 +4,27 @@ import Ingredient from "./Ingredient";
 import{useDispatch,useSelector} from "react-redux";
 import {addIng,setIng} from "../features/burger";
 import { useNavigate } from "react-router-dom";
-import menu from '../data/Predefined-burgers.json';
-import Ingredients from '../data/burger.json';
+import { fetchMenu,fetchIngredients,sendBurger } from '../features/apis';
+import { useEffect, useState } from 'react';
 
 function ControlPanel() {
     const dispatch=useDispatch();
     const burger= useSelector((state)=>state.burger.value);
     const navigate=useNavigate(null);
+    const [menu,setMenu]=useState([]);
+    const [Ingredients,setIngredients]=useState([]);
     let Ing=[];
     let price=2;
 
+    useEffect(()=>{
+        fetchMenu().then(data=>{
+            setMenu(data)
+        });
+        fetchIngredients().then(data=>{
+            setIngredients(data);
+        });
+    },[]);
+    
     const compareArrays = (array1, array2)=> {
         if (array1.length !== array2.length) {
             return false;
@@ -57,16 +68,16 @@ function ControlPanel() {
                     if(findIndex(Ing,x => x === ingredientName) === -1)
                      { 
                         Ing.push(ingredientName);
-                        return <Ingredient key={ingredientName} ingredientName={ingredientName}/>
+                        return <Ingredient key={ingredientName} Ingredient={find(Ingredients,x => x.name === ingredientName)}/>
                      }})
                 }
                 <div className='control-price'>Total price:{map(burger,(ingredientName)=>{
-                        const burger=find(Ingredients,x => x.name === ingredientName);
-                        price+=burger.price;
+                        const theburger=find(Ingredients,x => x.name === ingredientName);
+                        if(theburger) price+=theburger.price;
                      })
                 } {price}₪</div>  
             </div>
-            <button className='bt' onClick={()=>{navigate('/order')}}>Finish</button>
+            <button className='bt' onClick={()=>{;sendBurger(burger);navigate('/order')}}>Finish</button>
         </div>
     );
 }
