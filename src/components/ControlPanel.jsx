@@ -4,26 +4,23 @@ import Ingredient from "./Ingredient";
 import{useDispatch,useSelector} from "react-redux";
 import {addIng,setIng} from "../features/burger";
 import { useNavigate } from "react-router-dom";
-import { fetchMenu,fetchIngredients,sendBurger } from '../features/apis';
+import { fetchIngredients } from '../actions/fetchIngredients';
+import { fetchMenu } from '../actions/fetchMenu';
 import { useEffect, useState } from 'react';
 
 function ControlPanel() {
     const dispatch=useDispatch();
     const burger= useSelector((state)=>state.burger.value);
+    const Ingredients= useSelector((state)=>state.ingredients.value);
     const navigate=useNavigate(null);
     const [menu,setMenu]=useState([]);
-    const [Ingredients,setIngredients]=useState([]);
     let Ing=[];
     let price=2;
 
     useEffect(()=>{
-        fetchMenu().then(data=>{
-            setMenu(data)
-        });
-        fetchIngredients().then(data=>{
-            setIngredients(data);
-        });
-    },[]);
+        fetchMenu().then(data=>setMenu(data));
+        dispatch(fetchIngredients());
+    },[dispatch]);
     
     const compareArrays = (array1, array2)=> {
         if (array1.length !== array2.length) {
@@ -77,7 +74,7 @@ function ControlPanel() {
                      })
                 } {price}₪</div>  
             </div>
-            <button className='bt' onClick={()=>{;sendBurger(burger);navigate('/order')}}>Finish</button>
+            <button className='bt' onClick={()=>{navigate('/order')}}>Finish</button>
         </div>
     );
 }

@@ -1,19 +1,12 @@
 import '../Styles/Order.css';
 import{useSelector} from "react-redux";
 import { map } from 'lodash';
-import { fetchIngredients } from '../features/apis';
-import { useEffect, useState } from 'react';
+import { orderBurger } from '../actions/orderBurger';
 
 function Order() {
     const burger= useSelector((state)=>state.burger.value);
+    const Ingredients= useSelector((state)=>state.ingredients.value);
     let price=2;
-    const [Ingredients,setIngredients]=useState([]);
-    
-    useEffect(()=>{
-        fetchIngredients().then(data=>{
-            setIngredients(data);
-        });
-    },[]);
 
     const count=(Ingredient)=>{
         if(Ingredient.name==='bread-top' || Ingredient.name==='bread-bottom')
@@ -37,7 +30,7 @@ function Order() {
                 })}
                 </div>
             <div className='price-Ing-title'>Total price: {price}₪</div>             
-            <button className='order-button'>Order</button>
+            <button className='order-button' onClick={()=>{orderBurger({order:burger,price:price})}}>Order</button>
         </div>
         </div>
      );

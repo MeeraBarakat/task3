@@ -1,6 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit';
 
-const userSlice=createSlice({
+const burgerSlice=createSlice({
     name:"burger",
     initialState:{value:[]},
     reducers:{
@@ -16,6 +16,6 @@ const userSlice=createSlice({
     },
 });
 
-export const {addIng,removeIng,setIng}=userSlice.actions;
+export const {addIng,removeIng,setIng}=burgerSlice.actions;
 
-export default userSlice.reducer;
+export default burgerSlice.reducer;

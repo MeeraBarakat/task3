@@ -1,18 +1,10 @@
 import '../Styles/Simulation.css';
 import{useSelector} from "react-redux";
 import {map,find} from 'lodash';
-import { fetchIngredients } from '../features/apis';
-import { useEffect, useState } from 'react';
 
 function Simulation() {
     const burger= useSelector((state)=>state.burger.value);
-    const [Ingredients,setIngredients]=useState([]);
-    
-    useEffect(()=>{
-        fetchIngredients().then(data=>{
-            setIngredients(data);
-        });
-    },[]);
+    const Ingredients= useSelector((state)=>state.ingredients.value);
 
     return ( 
         <div className="Simulation">
