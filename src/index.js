@@ -6,13 +6,13 @@ import reportWebVitals from './reportWebVitals';
 import {Provider} from 'react-redux';
 import {configureStore} from '@reduxjs/toolkit';
 import burgerReducer from "./features/burger";
-import ingredients from "./features/ingredients";
+import ingredientsReducer from "./features/ingredients";
 import { BrowserRouter } from 'react-router-dom';
 
 let store=configureStore({
   reducer:{
     burger: burgerReducer,
-    ingredients:ingredients,
+    ingredients:ingredientsReducer,
   }});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
