@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { setIng } from "../features/burger";
 import { useNavigate } from "react-router-dom";
 import { fetchIngredients } from "../actions/fetchIngredients";
-import { fetchMenu } from "../actions/fetchMenu";
 import { useEffect, useState } from "react";
+import api from "../api/burger";
 
 function ControlPanel() {
   const dispatch = useDispatch();
@@ -16,8 +16,17 @@ function ControlPanel() {
   const [menu, setMenu] = useState([]);
   let price = 2;
 
+  const fetchMenu = async () => {
+    try {
+      const res = await api.get("/menu");
+      return res.data;
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   useEffect(() => {
-    fetchMenu().then((data) => setMenu(data))
+    fetchMenu().then((data) => setMenu(data));
     dispatch(fetchIngredients());
   }, [dispatch]);
 
@@ -34,7 +43,7 @@ function ControlPanel() {
     <div className="ControlPanel">
       <div style={{ width: "100%" }}>
         <span className="header">Choose a burger from our menu</span>
-      
+
         <div style={{ display: "flex" }}>
           {map(menu, (thisBurger) => {
             return (
@@ -54,7 +63,7 @@ function ControlPanel() {
                     {thisBurger.ingredients.join(", ")}
                     <div style={{ marginTop: "5px" }}>{thisBurger.price}₪</div>
                   </div>
-                 
+
                   <button
                     className="choose-btn"
                     onClick={() => {
@@ -68,11 +77,13 @@ function ControlPanel() {
             );
           })}
         </div>
-      
-        <span style={{ marginTop: "10px" }} className="header">
-          Add Ingredients to your burger
-        </span>
-      
+
+        <span className="header">Add Ingredients to your burger</span>
+
+        <button className="clear-button" onClick={() => dispatch(setIng([]))}>
+          Clear all
+        </button>
+
         {map(Ingredients, (thisIngredient, idx) => {
           if (idx !== 0 && idx !== 1)
             return (
@@ -82,6 +93,7 @@ function ControlPanel() {
               />
             );
         })}
+
         <div className="control-price">
           Total price:
           {map(burger, (ingredientName) => {

@@ -1,61 +1,61 @@
-.all{
-    background-image: url(../../public/images/burgerr.jpg);
-    width: 100vw;
-    height: 100vh;
-    background-size: cover;
-    background-repeat: no-repeat;
-    overflow: hidden;
+.all {
+  background-image: url(../../public/images/burgerr.jpg);
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
 }
 
-.burger{
-    height: 82vh;
-    width: 35vw;
-    background-color: white;
-    margin: 20px;
-    padding: 50px;
-    padding-bottom: 25px;
-    border-radius: 20px;
-    box-shadow: 10px 10px 5px gainsboro;
-    position: absolute;
-    right: 5%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+.burger {
+  height: 82vh;
+  width: 35vw;
+  background-color: white;
+  margin: 20px;
+  padding: 50px;
+  padding-bottom: 25px;
+  border-radius: 20px;
+  box-shadow: 10px 10px 5px gainsboro;
+  position: absolute;
+  right: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.Burger-created-title{
-    width: 100%;
-    display: inline-flex;
-    justify-content: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 1.2rem;
+.Burger-created-title {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.2rem;
 }
 
-.price-Ing-title{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 1rem;
-    width: 100%;
+.price-Ing-title {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1rem;
+  width: 100%;
 }
 
-.order-image{
-    width: 5%;
-    margin-left: 15px;
-    margin-right: 10px;
+.order-image {
+  width: 5%;
+  margin-left: 15px;
+  margin-right: 10px;
 }
 
-.ingredient-container{
-    margin: 10px;
+.ingredient-container {
+  margin: 10px;
 }
 
-.order-button{
-    width: 50%;
-    height: 1.5rem;
-    border: 2px solid rgb(15, 125, 235);
-    background-color: rgb(15, 125, 235);
-    color: white;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 1rem;
-    text-align: center;
+.order-button {
+  width: 50%;
+  height: 1.5rem;
+  border: 2px solid rgb(15, 125, 235);
+  background-color: rgb(15, 125, 235);
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-align: center;
 }
