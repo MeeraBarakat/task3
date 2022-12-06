@@ -14,7 +14,7 @@ function Picture(props) {
     <img
       ref={drag}
       className="sim-imgs"
-      style={{ height: props.height , opacity: isDragging ? 0.5 : 1}}
+      style={{ height: props.height, opacity: isDragging ? 0.5 : 1 }}
       src={props.ingredient.path}
       alt={props.ingredient.name}
     ></img>

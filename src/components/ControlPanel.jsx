@@ -80,10 +80,6 @@ function ControlPanel() {
 
         <span className="header">Add Ingredients to your burger</span>
 
-        <button className="clear-button" onClick={() => dispatch(setIng([]))}>
-          Clear all
-        </button>
-
         {map(Ingredients, (thisIngredient, idx) => {
           if (idx !== 0 && idx !== 1)
             return (
@@ -106,6 +102,7 @@ function ControlPanel() {
           {price}₪
         </div>
       </div>
+      <div>
       <button
         className="bt"
         onClick={() => {
@@ -114,6 +111,10 @@ function ControlPanel() {
       >
         Finish
       </button>
+      <button className="bt" style={{backgroundColor:'rgb(255,57,57)'}} onClick={() => dispatch(setIng([]))}>
+          Clear
+        </button>
+        </div>
     </div>
   );
 }

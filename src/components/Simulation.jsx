@@ -65,7 +65,7 @@ function Simulation() {
         <img
           className="trash"
           src={isOverTrash ? "/images/red-trash.svg" : "/images/trash.svg"}
-          style={{ height: "50px" }}
+          style={{ height: "55px" }}
           alt={"trash"}
           ref={dropTrash}
         ></img>
