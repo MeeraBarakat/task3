@@ -46,10 +46,7 @@ function Ingredient(props) {
           <button
             className="buttons"
             onClick={() => {
-              const idx = findIndex(
-                burger,
-                (x) => x === props.Ingredient.name
-              );
+              const idx = findIndex(burger, (x) => x === props.Ingredient.name);
               dispatch(removeIng(idx));
             }}
           >

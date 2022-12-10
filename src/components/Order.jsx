@@ -1,7 +1,7 @@
 import "../Styles/Order.css";
 import { useSelector } from "react-redux";
 import { map } from "lodash";
-import api from '../api/burger';
+import api from "../api/burger";
 
 function Order() {
   const burger = useSelector((state) => state.burger.value);
@@ -18,15 +18,14 @@ function Order() {
     return count;
   };
 
-  const orderBurger=async(order)=>{
-    try{
-        const res= await api.post('/order',order);
-        return res.data;
+  const orderBurger = async (order) => {
+    try {
+      const res = await api.post("/order", order);
+      return res.data;
+    } catch (err) {
+      console.log(err);
     }
-    catch(err){
-        console.log(err);
-    }
-}
+  };
 
   return (
     <div className="all">

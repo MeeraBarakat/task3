@@ -103,18 +103,22 @@ function ControlPanel() {
         </div>
       </div>
       <div>
-      <button
-        className="bt"
-        onClick={() => {
-          navigate("/order");
-        }}
-      >
-        Finish
-      </button>
-      <button className="bt" style={{backgroundColor:'rgb(255,57,57)'}} onClick={() => dispatch(setIng([]))}>
+        <button
+          className="bt"
+          onClick={() => {
+            navigate("/order");
+          }}
+        >
+          Finish
+        </button>
+        <button
+          className="bt"
+          style={{ backgroundColor: "rgb(255,57,57)" }}
+          onClick={() => dispatch(setIng([]))}
+        >
           Clear
         </button>
-        </div>
+      </div>
     </div>
   );
 }
