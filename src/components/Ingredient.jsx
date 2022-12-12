@@ -1,3 +1,4 @@
+import React from "react";
 import "../Styles/Ingredient.css";
 import { useDispatch, useSelector } from "react-redux";
 import { findIndex } from "lodash";

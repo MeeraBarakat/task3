@@ -1,3 +1,4 @@
+import React from "react";
 import "../Styles/Simulation.css";
 import { useDrag } from "react-dnd";
 

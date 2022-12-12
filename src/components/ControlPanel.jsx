@@ -1,6 +1,7 @@
+import React from "react";
 import "../Styles/ControlPanel.css";
 import { find, every, map } from "lodash";
-import Ingredient from "./Ingredient";
+import Ingredient from "./Ingredient.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { setIng } from "../features/burger";
 import { useNavigate } from "react-router-dom";

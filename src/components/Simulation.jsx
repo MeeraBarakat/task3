@@ -1,9 +1,10 @@
+import React from "react";
 import "../Styles/Simulation.css";
 import { useSelector, useDispatch } from "react-redux";
 import { map, find } from "lodash";
 import { useDrop } from "react-dnd";
 import { addIng, removeIng } from "../features/burger";
-import Picture from "./Picture";
+import Picture from "./Picture.jsx";
 
 function Simulation() {
   const burger = useSelector((state) => state.burger.value);

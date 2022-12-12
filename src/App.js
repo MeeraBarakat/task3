@@ -1,7 +1,8 @@
+import React from "react";
 import { Route, Routes } from "react-router-dom";
-import ControlPanel from "./components/ControlPanel";
-import Order from "./components/Order";
-import Simulation from "./components/Simulation";
+import ControlPanel from "./components/ControlPanel.jsx";
+import Order from "./components/Order.jsx";
+import Simulation from "./components/Simulation.jsx";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 
